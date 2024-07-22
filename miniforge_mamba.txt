@@ -1,0 +1,17 @@
+# create and config new environment
+mamba create -n katie_side_proj python=3.11
+mamba activate katie_side_proj
+mamba list
+mamba install numpy pandas scipy matplotlib seaborn jupyter
+# get packages downloading channels
+conda config --get channels
+# print envs
+mamba env list
+# In windows, print activated env path
+echo %CONDA_PREFIX%
+
+# to start jupyter notebook, first must in proper virtual environment
+jupyter notebook
+# set python interpreter and conda executable in PyCharm, for existing mamba env
+# C:\Users\sheng\AppData\Local\miniforge3\envs\katie_side_proj\python.exe
+# C:\Users\sheng\AppData\Local\miniforge3\condabin\conda.bat
