@@ -14,4 +14,5 @@ echo %CONDA_PREFIX%
 jupyter notebook
 # set python interpreter and conda executable in PyCharm, for existing mamba env
 # C:\Users\sheng\AppData\Local\miniforge3\envs\katie_side_proj\python.exe
+# This is the most important, setting Pycharm proj, existing conda
 # C:\Users\sheng\AppData\Local\miniforge3\condabin\conda.bat
