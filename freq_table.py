@@ -20,6 +20,16 @@ def load_csv_dask(file_path: str, drop: Optional[List] = None, dtype: Optional[D
     return dd.read_csv(file_path, low_memory=False).compute()
 
 
+def load_csv_dask_cols(file_path: str, cols: Optional[List] = None, dtype: Optional[Dict] = None) -> dd.DataFrame:
+    if cols and dtype:
+        return dd.read_csv(file_path, low_memory=False, dtype=dtype, usecols=cols).compute()
+    if dtype:
+        return dd.read_csv(file_path, low_memory=False, dtype=dtype).compute()
+    if cols:
+        return dd.read_csv(file_path, low_memory=False, usecols=cols).compute()
+    return dd.read_csv(file_path, low_memory=False).compute()
+
+
 def pretty_freq_df(styler: Styler) -> Styler:
     styler.set_caption("Frequency Table")
     return styler
