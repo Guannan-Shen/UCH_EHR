@@ -10,7 +10,9 @@ import os
 
 # return type pd.DataFrame vs pd.Series
 def str_similarity(df_use: pd.DataFrame, two_cols: List, similarity_type: str) -> pd.Series:
-    dist_list = ["Levenshtein", "Damerau–Levenshtein", "Jaro", "Jaro-Winkler", "SeqMatcher", "Jaccard"]
+    dist_list = ["Levenshtein",
+                 # "Damerau–Levenshtein",
+                 "Jaro", "Jaro-Winkler", "SeqMatcher", "Jaccard"]
     series = pd.Series()
     if similarity_type not in dist_list:
         print(f"Please provide a type of string distance to calculate, limited to types: {dist_list}")
@@ -25,8 +27,8 @@ def str_similarity(df_use: pd.DataFrame, two_cols: List, similarity_type: str) -
         series = df_use.apply(lambda x: jellyfish.jaro_similarity(x[two_cols[0]], x[two_cols[1]]), axis=1)
     if similarity_type == "Jaro-Winkler":
         series = df_use.apply(lambda x: jellyfish.jaro_winkler_similarity(x[two_cols[0]], x[two_cols[1]]), axis=1)
-    if similarity_type == "Jaccard":
-        series = df_use.apply(lambda x: 1 - distance.jaccard(x[two_cols[0]], x[two_cols[1]]), axis=1)
+    # if similarity_type == "Jaccard":
+    #     series = df_use.apply(lambda x: 1 - distance.jaccard(x[two_cols[0]], x[two_cols[1]]), axis=1)
     # naming and return
     series.name = similarity_type
     return series
