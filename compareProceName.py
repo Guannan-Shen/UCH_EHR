@@ -23,6 +23,7 @@ if __name__ == "__main__":
     print(tab11.memory_usage(index=True).sum() / TO_GB)
     # join_tab11_10 = pd.concat([tab11, tab10], axis=1, join="inner")
     # join_tab11_10 = pd.merge(tab11, tab10, on=["arb_person_id", "arb_encounter_id"], how="inner")
+    # the best method is de_duplicate and dask.dataframe.merge
     # using dask, dd.merge
     join_tab11_10 = dd.merge(tab11, tab10, on=["arb_person_id", "arb_encounter_id"], how="inner")
     print(join_tab11_10.head(10))
