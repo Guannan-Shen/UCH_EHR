@@ -16,3 +16,6 @@ jupyter notebook
 # C:\Users\sheng\AppData\Local\miniforge3\envs\katie_side_proj\python.exe
 # This is the most important, setting Pycharm proj, existing conda
 # C:\Users\sheng\AppData\Local\miniforge3\condabin\conda.bat
+
+# match mamba list exact package, Piping, in Windows
+mamba list | findstr /R "distance"
